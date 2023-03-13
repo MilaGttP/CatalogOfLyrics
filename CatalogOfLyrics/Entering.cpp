@@ -18,7 +18,7 @@ int EnterNumber(const char* prompt)
 		{
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
-			cerr << "ќшибка ввода целого числа! \n";
+			cerr << "Integer input error! \n";
 		}
 
 		else
@@ -39,6 +39,6 @@ int EnterNumber(const char* prompt, int min, int max)
 		if (value >= min && value <= max)
 			return value;
 
-		cerr << "¬ведите значение от " << min << " до " << max << endl;
+		cerr << "Enter a value from " << min << " to " << max << endl;
 	}
 }

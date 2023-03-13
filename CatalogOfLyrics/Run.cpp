@@ -27,26 +27,26 @@ struct CommandInfo
 
 CommandInfo commandsInfo[] =
 {
-	{ "Выйти", nullptr },
-	{ "Добавить тестовые данные", CreateTestingData, Empty },
-	{ "Добавить текст песни с консоли", AddFromConsole, AlwaysDisplay },
-	{ "Добавить текст песни с файла", LoadFromText, AlwaysDisplay, true },
-	{ "Отобразить текст на экран", ShowText, MinOneValue, true },
-	{ "Изменить текст", EditText, MinOneValue },
-	{ "Детально о записи", OutObjectDetails, MinOneValue, true },
-	{ "Детально о песнях", OutAllInfo, MinTwoValues, true },
-	{ "Сохранить текст в файл", SaveAsText, MinOneValue },
-	{ "Отобразить все песни одного автора", FilterByAuthor, MinTwoValues, true },
-	{ "Отобразить песню по указанному слову", FilterByWord, MinTwoValues, true },
-	{ "Очистить все данные", Clear, MinTwoValues },
-	{ "Удалить песню", Delete, MinOneValue },
+	{ "Exit", nullptr },
+	{ "Add test data", CreateTestingData, Empty },
+	{ "Add lyrics from console", AddFromConsole, AlwaysDisplay },
+	{ "Add lyrics from file", LoadFromText, AlwaysDisplay, true },
+	{ "Show text", ShowText, MinOneValue, true },
+	{ "Edit text", EditText, MinOneValue },
+	{ "Details about the song", OutObjectDetails, MinOneValue, true },
+	{ "Details about all songs", OutAllInfo, MinTwoValues, true },
+	{ "Save text in file", SaveAsText, MinOneValue },
+	{ "Display all songs by the same author", FilterByAuthor, MinTwoValues, true },
+	{ "Display the song for the specified word", FilterByWord, MinTwoValues, true },
+	{ "Clear all", Clear, MinTwoValues },
+	{ "Delete song", Delete, MinOneValue },
 };
 
 const size_t COMMANDS_COUNT = sizeof commandsInfo / sizeof(CommandInfo);
 
 void ShowMenu()
 {
-	cout << "\nКомманды: \n\n";
+	cout << "\nCommands: \n\n";
 	for (size_t i = 0; i < COMMANDS_COUNT; i++)
 	{
 		if (commandsInfo[i].display())
@@ -57,14 +57,14 @@ void ShowMenu()
 
 CommandInfo EnterCommand()
 {
-	int index = EnterNumber("Номер комманды", 0, COMMANDS_COUNT - 1);
+	int index = EnterNumber("ID", 0, COMMANDS_COUNT - 1);
 	return commandsInfo[index];
 }
 
 
 void DelayDisplaying()
 {
-	cout << "\n\tДля продолжения нажмите любую клавишу...";
+	cout << "\n\tPress any key to continue...";
 	_getch();
 }
 

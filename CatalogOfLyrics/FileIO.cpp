@@ -14,7 +14,7 @@ void Save()
 
 	if (!stream.is_open())
 	{
-		cout << "Ошибка открытия файла " << binFileName << " для записи\n";
+		cout << "Error of opening file " << binFileName << " for writing\n";
 		return;
 	}
 
@@ -31,7 +31,7 @@ void Load()
 
 	if (!stream.is_open())
 	{
-		cout << "Ошибка открытия файла " << binFileName << " для чтения\n";
+		cout << "Error of opening file " << binFileName << " for reading\n";
 		return;
 	}
 

@@ -10,7 +10,7 @@ using namespace std;
 
 void OutText(Song* pObj)
 {
-	cout << "\n\tТекст песни: \n" << pObj->Text;
+	cout << "\n\tText: \n" << pObj->Text;
 }
 
 
@@ -32,20 +32,20 @@ Song* AddSongFromConsole()
 
 	Song* p = new Song();
 
-	cout << "\n\tВведите данные песни: \n";
+	cout << "\n\tEnter song data: \n";
 
-	cout << "\tНазвание песни: ";
+	cout << "\tName: ";
 	cin.getline(p->Name, NAME_SIZE);
 
-	cout << "\tТекст: \n";
+	cout << "\tText: \n";
 	char* sValue;
 	InputMultilineText(cin, sValue);
 	strncpy(p->Text, sValue, TEXT_SIZE);
 
-	cout << "\tАвтор: ";
+	cout << "\tAuthor: ";
 	cin.getline(p->Author, AUTHOR_NAME_SIZE);
 
-	cout << "\tГод выпуска: ";
+	cout << "\tYear: ";
 	cin >> p->Year;
 
 	cin.ignore();
@@ -58,9 +58,9 @@ void Edit(Song* pObj)
 	system("cls");
 	char buff[512];
 	char* sValue;
-	cout << "\n\tИзменение записи песни: \n";
+	cout << "\n\tEditing song: \n";
 
-	cout << "\tТекст (" << pObj->Text << "): ";
+	cout << "\tText (" << pObj->Text << "): ";
 	InputMultilineText(cin, sValue);
 	if (*buff != '\0')
 		strncpy(pObj->Text, sValue, TEXT_SIZE);
@@ -81,10 +81,10 @@ void Filter(Select select)
 
 void Print(ostream& stream, Song* pObj, int wide)
 {
-	stream << setw(wide) << "Название" << ": " << pObj->Name << "\n"
-		<< setw(wide) << "Автор" << ": " << pObj->Author << "\n"
-		<< setw(wide) << "Год" << ": " << pObj->Year << "\n"
-		<< setw(wide) << "Текст" << ": " << pObj->Text << "\n";
+	stream << setw(wide) << "Name" << ": " << pObj->Name << "\n"
+		<< setw(wide) << "Author" << ": " << pObj->Author << "\n"
+		<< setw(wide) << "Year" << ": " << pObj->Year << "\n"
+		<< setw(wide) << "Text" << ": " << pObj->Text << "\n";
 }
 
 

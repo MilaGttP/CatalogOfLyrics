@@ -11,7 +11,7 @@ using namespace std;
 
 void ShowText()
 {
-	size_t num = EnterNumber("\tНомер записи", 1, (int)Getlenght());
+	size_t num = EnterNumber("\tID", 1, (int)Getlenght());
 	Song* p = ElementAt(num - 1);
 
 	system("cls");
@@ -22,7 +22,7 @@ void ShowText()
 
 void OutObjectDetails()
 {
-	size_t num = EnterNumber("\tНомер записи", 1, (int)Getlenght());
+	size_t num = EnterNumber("\tID", 1, (int)Getlenght());
 	Song* p = ElementAt(num - 1);
 	
 	system("cls");
@@ -34,16 +34,16 @@ void OutObjectDetails()
 void Out()
 {
 	if (Empty())
-		cout << "Список песен пуст! \n";
+		cout << "List is empty! \n";
 
 	else
 	{
-		cout << "Список песен: \n\n";
+		cout << "List: \n\n";
 
 		cout << left << setw(2) << "№"
-			<< setw(35) << "Название песни"
-			<< setw(25) << "Автор"
-			<< setw(5) << "Год\n";
+			<< setw(35) << "Name"
+			<< setw(25) << "Author"
+			<< setw(5) << "Year\n";
 
 		cout << setfill('=') << setw(75) << '=' << setfill(' ') << endl;
 
@@ -68,7 +68,7 @@ void AddFromConsole()
 void OutAllInfo()
 {
 	system("cls");
-	cout << "\n\tИнформация о песнях: \n\n";
+	cout << "\n\tInformation: \n\n";
 	Print(cout);
 }
 
@@ -76,7 +76,7 @@ void OutAllInfo()
 
 void EditText()
 {
-	size_t num = EnterNumber("\tНомер записи", 1, (int)Getlenght());
+	size_t num = EnterNumber("\tID", 1, (int)Getlenght());
 	Song* p = ElementAt(num - 1);
 
 	Edit(p);
@@ -85,7 +85,7 @@ void EditText()
 
 void Delete()
 {
-	int num = EnterNumber("\tНомер записи", 1, (int)Getlenght());
+	int num = EnterNumber("\tID", 1, (int)Getlenght());
 	DeleteAt(num - 1);
 }
 
@@ -111,7 +111,7 @@ void FilterByAuthor()
 	system("cls");
 	Out();
 
-	cout << "\n\tНачало имени автора: ";
+	cout << "\n\tAuthor`s name beginning: ";
 	char buff[64];
 	cin.getline(startName, sizeof startName);
 	cout << "\n";
@@ -124,7 +124,7 @@ void FilterByWord()
 	system("cls");
 	Out();
 
-	cout << "\n\tИскомое слово: ";
+	cout << "\n\tSearched word: ";
 	char buff[64];
 	cin.getline(startWord, sizeof startWord);
 	cout << "\n";
@@ -137,7 +137,7 @@ char textFileName[_MAX_FNAME] = "Songs.txt";
 char* InputFileName(const char* defaultName) 
 {
 	static char fName[_MAX_FNAME];
-	cout << "\tВведите имя файла (" << defaultName << "): ";
+	cout << "\tEnter filename (" << defaultName << "): ";
 	cin.getline(fName, _MAX_PATH);
 
 	if (fName[0] == '\0')

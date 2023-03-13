@@ -15,7 +15,7 @@ int main()
 
 	if (!SetConsoleCtrlHandler((PHANDLER_ROUTINE)CtrlHandler, TRUE))
 	{
-		cerr << "\nОшибка! Не удалось установить элемент управления";
+		cerr << "\nError! Failed to install control!";
 		_getch();
 		return 1;
 	}
@@ -33,7 +33,7 @@ BOOL CtrlHandler(DWORD fdwCtrlType)
 	case CTRL_BREAK_EVENT:
 	case CTRL_SHUTDOWN_EVENT:
 	{
-		int res = (MessageBoxA(nullptr, "Сохранить данные?", "Закрытие решения", MB_YESNO | MB_DEFBUTTON1 | MB_ICONQUESTION));
+		int res = (MessageBoxA(nullptr, "Save data?", "Close solution", MB_YESNO | MB_DEFBUTTON1 | MB_ICONQUESTION));
 
 		switch (res)
 		{
